@@ -40,7 +40,7 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
       const Tab(text: "Trgovina"),
       const Tab(text: "Islamsko Vjerovanje"),
       const Tab(text: "Hadis"),
-      const Tab(text: "Ostalo"),
+      const Tab(text: "Drugo"),
     ];
 
     final TabController tabController = TabController(length: tabsList.length, vsync: this);

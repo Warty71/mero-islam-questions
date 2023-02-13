@@ -16,5 +16,5 @@ List<Tags> tagsList = [
   Tags("Liječenje Kur'anom"),
   Tags("Kur'an"),
   Tags('Hadis'),
-  Tags('Ostalo'),
+  Tags('Drugo'),
 ];
