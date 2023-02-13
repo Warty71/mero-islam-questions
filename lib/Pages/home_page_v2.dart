@@ -82,7 +82,7 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
                     Icons.person,
                     size: 32,
                     color: Colors.grey.shade400,
-                    semanticLabel: "Profile",
+                    semanticLabel: "Profil",
                   ),
                 ),
 
