@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "883476617610",
+    "project_id": "islamic-questions-901d0",
+    "storage_bucket": "islamic-questions-901d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883476617610:android:74ac8a034f2275f402d073",
+        "android_client_info": {
+          "package_name": "com.example.apk_islamic_questions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883476617610-09n0vnp3jdsjvku2j6lo80av4ourf0vk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3hJpctJpDHk9gss6iVwJ6Od5uc86w-bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883476617610-09n0vnp3jdsjvku2j6lo80av4ourf0vk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883476617610-v37t0mvulrpk6qmso3t67o1a6s168s7l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.apkIslamicQuestions"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
