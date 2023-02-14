@@ -20,7 +20,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   void initState() {
     super.initState();
-
     favorites = UserPreferences.getFavorites() ?? [];
   }
 

@@ -55,7 +55,7 @@ class _AnswerDetailsPageState extends State<AnswerDetailsPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: IconButton(
-                        onPressed: () {Get.back();},
+                        onPressed: () {Get.back(result: true);},
                         icon: const Icon(
                           Icons.arrow_back,
                           size: 30,

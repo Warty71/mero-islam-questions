@@ -51,6 +51,7 @@ dependencies:
   firebase_core: ^1.24.0
   firebase_core_platform_interface: 4.5.1
   firebase_database: ^9.1.7
+  firebase_messaging:
   cloud_firestore:
   shared_preferences: ^2.0.17
 
