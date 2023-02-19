@@ -3,7 +3,6 @@ import 'package:apk_islamic_questions/Services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Components/login_square_tile.dart';
@@ -174,16 +173,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       SquareTile(
                         imagePath: 'lib/Icons/google.png',
                         onTap: () => AuthService().signInWithGoogle(),
-                      ),
-
-                      SquareTile(
-                        imagePath: 'lib/Icons/apple.png',
-                        onTap: () {  },
-                      ),
-
-                      SquareTile(
-                        imagePath: 'lib/Icons/facebook.png',
-                        onTap: () {  },
                       ),
                     ],
                   ),
