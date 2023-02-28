@@ -55,13 +55,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
     } on Exception catch (e) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              content: Text(e.toString()),
-            );
-          });
+      print(e);
     }
   }
 
@@ -101,12 +95,25 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                   ),
               ),
               onPressed: sendVerificationEmail,
-              icon: const Icon(Icons.settings, size: 50),
+              icon: const Icon(Icons.mail, size: 28),
               label: const Text(
                 "Ponovo Pošalji",
                 style: TextStyle(fontSize: 16),
               ),
-            )
+            ),
+
+            const SizedBox(height: 8,),
+
+            TextButton(
+                onPressed: () => FirebaseAuth.instance.signOut(),
+                child: const Text(
+              "Poništi",
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ))
 
           ],
         ),
