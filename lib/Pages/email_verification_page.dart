@@ -101,7 +101,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                   ),
               ),
               onPressed: sendVerificationEmail,
-              icon: const Icon(Icons.email, size: 28),
+              icon: const Icon(Icons.settings, size: 28),
               label: const Text(
                 "Ponovo Pošalji",
                 style: TextStyle(fontSize: 16),
