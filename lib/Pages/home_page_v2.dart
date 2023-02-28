@@ -5,13 +5,9 @@ import 'package:apk_islamic_questions/Pages/search_page_v2.dart';
 import 'package:apk_islamic_questions/Utilities/user_prefs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'auth_page.dart';
-
-
-
 
 class HomePageV2 extends StatefulWidget {
   const HomePageV2({Key? key}) : super(key: key);
@@ -48,8 +44,6 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
 
     final TabController tabController = TabController(length: tabsList.length, vsync: this);
     final CollectionReference _answers = FirebaseFirestore.instance.collection("Answers");
-
-
 
     return Container(
       decoration: const BoxDecoration(
@@ -208,12 +202,7 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(left: 10.0, right: 20.0),
                           child: GestureDetector(
-                            onTap: () {Get.to(() => const SearchPageV2(
-                            ),
-                              transition: Transition.downToUp,
-                              duration: const Duration(seconds: 1),
-                            );
-                            },
+                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SearchPageV2())),
                             child: GlassmorphicContainer(
                               width: 340,
                               height: 50,
@@ -276,12 +265,7 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(left: 10.0, right: 20.0),
                           child: GestureDetector(
-                            onTap: () {Get.to(() => const FavoritesPage(
-                            ),
-                              transition: Transition.leftToRightWithFade,
-                              duration: const Duration(seconds: 1),
-                            );
-                            },
+                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavoritesPage())),
                             child: GlassmorphicContainer(
                               width: 340,
                               height: 50,
@@ -349,14 +333,13 @@ class _HomePageV2State extends State<HomePageV2> with TickerProviderStateMixin {
                               lastAnswer = UserPreferences.getLastAnswer()!;
 
                               if(lastAnswer.isNotEmpty) {
-                                Get.to(() => AnswerDetailsPage(
-                                  docID: lastAnswer[1].toString(),
-                                  odgovor: lastAnswer[2].toString(),
-                                  osoba: lastAnswer[3].toString(),
-                                  pitanje: lastAnswer[1].toString(),
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => AnswerDetailsPage(
+                                    docID: lastAnswer[1].toString(),
+                                    pitanje: lastAnswer[1].toString(),
+                                    odgovor: lastAnswer[2].toString(),
+                                    osoba: lastAnswer[3].toString()
                                 ),
-                                  transition: Transition.leftToRightWithFade,
-                                  duration: const Duration(seconds: 1),
+                                ),
                                 );
                               }
 

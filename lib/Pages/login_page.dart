@@ -1,12 +1,12 @@
 import 'package:apk_islamic_questions/Components/login_signIn_button.dart';
 import 'package:apk_islamic_questions/Components/login_square_tile.dart';
 import 'package:apk_islamic_questions/Components/login_textfield.dart';
+import 'package:apk_islamic_questions/Pages/forgot_pw_page.dart';
 import 'package:apk_islamic_questions/Pages/register_page.dart';
 import 'package:apk_islamic_questions/Services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../main.dart';
@@ -126,8 +126,11 @@ class _LoginPageState extends State<LoginPage> {
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 20.0, bottom: 15, top: 10.0),
-                      child: Text('Zaboravili ste šifru?',
-                        style: TextStyle(color: Colors.orange.shade200, fontWeight: FontWeight.bold),
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const ForgotPasswordPage())),
+                        child: Text('Zaboravili ste šifru?',
+                          style: TextStyle(color: Colors.orange.shade200, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
