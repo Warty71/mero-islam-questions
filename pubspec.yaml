@@ -55,6 +55,7 @@ dependencies:
   firebase_messaging:
   cloud_firestore:
   shared_preferences: ^2.0.17
+  onesignal_flutter:
 
 dev_dependencies:
   flutter_test:

@@ -48,9 +48,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     //Pop the loading circle
-    navigatorKey.currentState!.popUntil((route) => route.isFirst);
     Navigator.of(navigatorKey.currentContext!,rootNavigator: true).pop();
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
   }
 
   @override

@@ -98,18 +98,13 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
                                           if (favorites.contains(documentSnapshot.id)) {
                                             return GestureDetector(
-                                              onTap: () {
-                                                Get.to(() => AnswerDetailsPage(
-                                                  docID: documentSnapshot.id,
-                                                  pitanje: documentSnapshot["pitanje"],
-                                                  odgovor: documentSnapshot["odgovor"],
-                                                  datum: documentSnapshot["datum"].toDate(),
-                                                  osoba: documentSnapshot["osoba"],
-                                                ),
-                                                  transition: Transition.rightToLeft,
-                                                  duration: const Duration(seconds: 1),
-                                                );
-                                              },
+                                              onTap: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (_) => AnswerDetailsPage(
+                                                docID: documentSnapshot.id,
+                                                pitanje: documentSnapshot["pitanje"],
+                                                odgovor: documentSnapshot["odgovor"],
+                                                datum: documentSnapshot["datum"].toDate(),
+                                                osoba: documentSnapshot["osoba"],
+                                              ),)),
                                               child: GlassmorphicContainer(
                                                 margin: const EdgeInsets.only(top: 10.0, right: 5.0, left: 5.0),
                                                 width: double.maxFinite,

@@ -1,11 +1,8 @@
 import 'package:apk_islamic_questions/Pages/answer_page_v2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../Pages/answer_page.dart';
 
 class HomeListView extends StatefulWidget {
   const HomeListView({Key? key, required this.currentStream}) : super(key: key);
@@ -30,18 +27,15 @@ class _HomeListViewState extends State<HomeListView> {
               itemBuilder: (BuildContext context, int index) {
                 DocumentSnapshot documentSnapshot = streamSnapshot.data!.docs[index];
                 return GestureDetector(
-                  onTap: () {
-                    Get.to(() => AnswerDetailsPage(
-                      docID: documentSnapshot.id,
-                      pitanje: documentSnapshot["pitanje"],
-                      odgovor: documentSnapshot["odgovor"],
-                      datum: documentSnapshot["datum"].toDate(),
-                      osoba: documentSnapshot["osoba"],
-                    ),
-                      transition: Transition.leftToRight,
-                      duration: const Duration(seconds: 1),
-                    );
-                  },
+                  onTap: () =>
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => AnswerDetailsPage(
+                        docID: documentSnapshot.id,
+                        pitanje: documentSnapshot["pitanje"],
+                        odgovor: documentSnapshot["odgovor"],
+                        datum: documentSnapshot["datum"].toDate(),
+                        osoba: documentSnapshot["osoba"],
+                      ),)),
+
                   child: GlassmorphicContainer(
                     height: 300,
                     width: 300,

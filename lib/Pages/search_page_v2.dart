@@ -1,3 +1,6 @@
+
+import 'dart:async';
+
 import 'package:apk_islamic_questions/Pages/answer_page_v2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -53,14 +56,18 @@ class _SearchPageV2State extends State<SearchPageV2> {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0, left: 20.0),
                 child: TextFormField(
-
                   style: const TextStyle(
                     color: Colors.white,
                   ),
                   onChanged: (String value) {
-                    setState(() {
-                      searchString = value.toLowerCase();
+
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      setState(() {
+                        searchString = value.toLowerCase();
+                      });
                     });
+
+
                   },
                   decoration: InputDecoration(
                     hintStyle: const TextStyle(
@@ -110,10 +117,10 @@ class _SearchPageV2State extends State<SearchPageV2> {
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: StreamBuilder(
+                            child: StreamBuilder<dynamic>(
                                 stream: _answers.snapshots(),
-                                builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-                                  if (streamSnapshot.hasData && (searchString.length >= 3)) {
+                                builder: (context, streamSnapshot) {
+                                  if (streamSnapshot.hasData) {
                                     return ListView.builder(
                                         physics: const NeverScrollableScrollPhysics(),
                                         itemCount: streamSnapshot.data!.docs.length,
@@ -123,19 +130,13 @@ class _SearchPageV2State extends State<SearchPageV2> {
 
                                           if ((streamSnapshot.data!.docs[index].data().toString().toLowerCase().contains(searchString)) && ((searchString.length >= 3))) {
                                             return GestureDetector(
-                                              onTap: () {
-                                                Get.to(() => AnswerDetailsPage(
-                                                  docID: documentSnapshot.id,
-                                                  pitanje: documentSnapshot["pitanje"],
-                                                  odgovor: documentSnapshot["odgovor"],
-                                                  datum: documentSnapshot["datum"].toDate(),
-                                                  osoba: documentSnapshot["osoba"],
-                                                ),
-                                                  transition: Transition.rightToLeft,
-                                                  //popGesture: true,
-                                                  duration: const Duration(seconds: 1),
-                                                );
-                                              },
+                                              onTap: () =>  Navigator.of(context).push(MaterialPageRoute(builder: (_) => AnswerDetailsPage(
+                                                docID: documentSnapshot.id,
+                                                pitanje: documentSnapshot["pitanje"],
+                                                odgovor: documentSnapshot["odgovor"],
+                                                datum: documentSnapshot["datum"].toDate(),
+                                                osoba: documentSnapshot["osoba"],
+                                              ),)),
                                               child: GlassmorphicContainer(
                                                 margin: const EdgeInsets.only(top: 10.0, right: 5.0, left: 5.0),
                                                 width: double.maxFinite,
@@ -224,3 +225,4 @@ class _SearchPageV2State extends State<SearchPageV2> {
     );
   }
 }
+
